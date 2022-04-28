@@ -1,0 +1,21 @@
+@mixin flexBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin breakPoint($value) {
+    
+    @if($value == "mobile") {
+        @media (max-width: 767px) {
+        @content;
+    }} 
+    @if($value == "small") {
+        @media (max-width: 991px) {
+        @content;
+    }} 
+}

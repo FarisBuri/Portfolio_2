@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+::selection {
+    background-color: white;
+    color: $mainColor
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}

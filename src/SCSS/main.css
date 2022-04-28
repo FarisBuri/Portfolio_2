@@ -1,0 +1,525 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@100;300;400;500&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+:root {
+  --main-color: #2eca7f;
+  --second-color: #e91e63;
+  --light-green: #63EB67;
+  --light-yellow: #ffeb3b;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+::-moz-selection {
+  background-color: white;
+  color: var(--main-color);
+}
+
+::selection {
+  background-color: white;
+  color: var(--main-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  background-color: var(--main-color);
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  header {
+    display: block;
+  }
+}
+
+header header:hover {
+  background-color: red;
+}
+
+header > ul {
+  position: absolute;
+  right: -40px;
+  top: -90px;
+}
+
+@media (max-width: 550px) {
+  header > ul {
+    display: none;
+  }
+}
+
+header > ul li {
+  width: 30px;
+  height: 30px;
+  background-color: var(--light-green);
+  border-radius: 5px;
+  border: 2px solid var(--light-yellow);
+  -webkit-animation: move 2.5s linear infinite;
+          animation: move 2.5s linear infinite;
+  -webkit-box-shadow: 0 2px 15px var(--light-yellow);
+          box-shadow: 0 2px 15px var(--light-yellow);
+}
+
+header .provide {
+  gap: 10px;
+  cursor: pointer;
+}
+
+header .provide:hover .image {
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-box-shadow: 0 2px 15px #090606;
+          box-shadow: 0 2px 15px #090606;
+}
+
+header .provide:hover .text h4 span {
+  -webkit-transition-delay: 5s;
+          transition-delay: 5s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+header .provide:hover .text p:before {
+  content: attr(data-element);
+  position: absolute;
+  left: 0px;
+  top: 15px;
+  -webkit-transform: rotate(180deg) scaleX(-1);
+          transform: rotate(180deg) scaleX(-1);
+  color: #f9f9f940;
+}
+
+@media (max-width: 767px) and (min-width: 570px) {
+  header .provide:hover .text p:before {
+    left: 50%;
+    top: 15px;
+    -webkit-transform: translateX(-50%) rotate(180deg) scaleX(-1);
+            transform: translateX(-50%) rotate(180deg) scaleX(-1);
+  }
+}
+
+@media (max-width: 560px) {
+  header .provide:hover .text p:before {
+    left: 50%;
+    top: 15px;
+    display: none;
+    -webkit-transform: translateX(-50%) rotate(180deg) scaleX(-1);
+            transform: translateX(-50%) rotate(180deg) scaleX(-1);
+  }
+}
+
+header .provide .image {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  cursor: pointer;
+}
+
+header .provide .image img {
+  height: 75px;
+  width: 75px;
+}
+
+header .provide .text {
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  header .provide .text {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+header .provide .text h4 {
+  cursor: pointer;
+  margin: 0;
+}
+
+header .provide .text h4 span {
+  display: inline-block;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+header .provide .text h4 .empty-span {
+  display: inline;
+}
+
+header .provide .text p {
+  position: relative;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+header .links {
+  z-index: 3;
+}
+
+header .links ul {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 767px) {
+  header .links ul {
+    padding: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+header .links ul a {
+  height: 35px;
+  width: 35px;
+  background-color: white;
+  border-radius: 50%;
+  color: var(--main-color);
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+header .links ul a::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+header .links ul a:hover::before {
+  border: 1px dashed green;
+  -webkit-animation: border, rotate 1s 2 alternate;
+          animation: border, rotate 1s 2 alternate;
+}
+
+header .links ul a:hover {
+  -webkit-animation: rotate 1s;
+          animation: rotate 1s;
+}
+
+.menu {
+  display: none;
+  width: 23px;
+  height: 22px;
+  margin: 15px auto 0;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .menu {
+    display: block;
+  }
+}
+
+.menu .rotateMenu2 {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform: translate(0, 32px) rotate(180deg);
+          transform: translate(0, 32px) rotate(180deg);
+}
+
+.menu .rotateMenu1 {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+}
+
+.menu span {
+  -webkit-transition: 1s;
+  transition: 1s;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.menu span::before, .menu span::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 14px;
+  width: 2px;
+  top: 0;
+}
+
+.menu span::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  left: 15px;
+}
+
+.menu span::after {
+  left: 6px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.menu span:last-child::before, .menu span:last-child::after {
+  height: 14px;
+  top: 9px;
+}
+
+.menu span:last-child::before {
+  left: 15px;
+}
+
+.menu span:last-child::after {
+  left: 6px;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes move {
+  100% {
+    -webkit-transform: translate(-300px, 300px) rotate(360deg);
+            transform: translate(-300px, 300px) rotate(360deg);
+  }
+}
+
+@keyframes move {
+  100% {
+    -webkit-transform: translate(-300px, 300px) rotate(360deg);
+            transform: translate(-300px, 300px) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes up {
+  0%, 100% {
+    -webkit-transform: trasnlateY(0px);
+            transform: trasnlateY(0px);
+  }
+  50% {
+    -webkit-transform: trasnlateY(-5px);
+            transform: trasnlateY(-5px);
+  }
+}
+
+@keyframes up {
+  0%, 100% {
+    -webkit-transform: trasnlateY(0px);
+            transform: trasnlateY(0px);
+  }
+  50% {
+    -webkit-transform: trasnlateY(-5px);
+            transform: trasnlateY(-5px);
+  }
+}
+
+.hidden {
+  opacity: 1 !important;
+  z-index: 1 !important;
+  -webkit-transition: 1s !important;
+  transition: 1s !important;
+}
+
+aside {
+  width: 200px;
+  -webkit-box-shadow: 0 2px 15px #ccc;
+          box-shadow: 0 2px 15px #ccc;
+}
+
+@media (max-width: 767px) {
+  aside {
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+}
+
+aside ul {
+  text-align: left;
+  padding: 34px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+aside ul li {
+  font-weight: 500;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+  padding: 0 10px;
+  padding-left: 30px;
+  position: relative;
+}
+
+aside ul li:hover label:before {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  width: 100%;
+}
+
+aside ul li:hover span::before {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  left: -2px;
+}
+
+aside ul li:before, aside ul li:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 15px;
+  height: 2px;
+  background-color: #f6f6f6;
+}
+
+aside ul li:after {
+  z-index: 2;
+  background-color: var(--main-color);
+  left: -200px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transition-delay: .8s;
+          transition-delay: .8s;
+}
+
+aside ul li:hover::after {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  left: 0;
+}
+
+aside ul li:hover i {
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+  color: var(--main-color);
+}
+
+aside ul li label {
+  position: relative;
+  -webkit-text-fill-color: #333;
+  white-space: nowrap;
+  margin: 10px 0;
+}
+
+aside ul li label::before {
+  content: attr(data-fill);
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  -webkit-text-fill-color: var(--main-color);
+  width: 0%;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+aside ul li span {
+  display: block;
+  position: absolute;
+  background-color: #f6f6f6;
+  height: 2px;
+  width: 100%;
+  left: -2px;
+}
+
+aside ul li span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: -100%;
+  height: 2px;
+  background-color: var(--main-color);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+aside ul li i {
+  margin-right: 10px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+}
+
+aside ul .active:before,
+aside ul .active span {
+  background-color: var(--main-color);
+}
+
+aside ul .active i {
+  color: var(--main-color);
+}
+
+aside ul .active label {
+  -webkit-text-fill-color: var(--main-color);
+}
+/*# sourceMappingURL=main.css.map */

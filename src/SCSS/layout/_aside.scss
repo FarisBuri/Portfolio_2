@@ -1,0 +1,126 @@
+.hidden{
+    opacity: 1 !important;
+    z-index: 1 !important;
+    transition: 1s !important;
+}
+aside {
+    width: 200px;
+    @include breakPoint(mobile){
+        width:100%;
+        z-index:-1;
+        opacity: 0;
+        transition: 1s;
+        
+    }
+    box-shadow:  0 2px 15px #ccc;
+    ul {
+        text-align: left;
+        padding:34px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: 100%;
+        li {
+            font-weight: 500;
+            flex: 1;
+            cursor: pointer;
+            padding: 0 10px;
+            padding-left: 30px;
+            position: relative;
+            &:hover label:before{
+                transition: .5s;
+                transition-delay: .5s;
+                transition-timing-function: linear ;
+                width: 100%;
+            }
+            &:hover span::before {
+                transition: .5s;
+                transition-delay: .2s;
+                transition-timing-function: linear ;
+                left: -2px;
+            }
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 22px;
+                // transform: translateY(-50%);
+                width: 15px;
+                height: 2px;
+                background-color: #f6f6f6;
+            }
+            &:after {
+                z-index: 2;
+                background-color: $mainColor;
+                left: -200px;
+                transition: 1s;
+                transition-delay: .8s;
+            }
+            &:hover::after {
+                transition: .5s;
+                transition-timing-function: linear ;
+                left: 0;
+            }
+            &:hover i {
+                transition: .3s;
+                transition-delay: .4s;
+                color: $mainColor;
+            }
+            label {
+                position: relative;
+                -webkit-text-fill-color: #333;
+                white-space: nowrap;
+                margin: 10px 0;
+                &::before {
+                    content:attr(data-fill);
+                    overflow: hidden; 
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    -webkit-text-fill-color: $mainColor;
+                    width: 0%;
+                    transition: 1s;
+                }
+            }
+            span {
+                display: block;
+                position: absolute;
+                background-color: #f6f6f6;
+                height: 2px;
+                width: 100%;
+                left: -2px;
+                &::before {
+                    content: "";
+                    position: absolute; 
+                    width: 100%;
+                    left: -100%;
+                    height: 2px;
+                    background-color: $mainColor;
+                    transition: 1s;
+
+                }
+            }
+            i {
+                margin-right: 10px;
+                transition: 1s;
+                transition-delay: .3s;
+            }
+        }
+        .active {
+            &:before,
+            span{
+                
+                background-color: $mainColor;
+            }
+            i
+             {
+                color: $mainColor;
+            }
+            label {
+                -webkit-text-fill-color: $mainColor
+            }
+        }
+    }
+    
+}
