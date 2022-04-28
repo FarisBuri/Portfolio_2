@@ -384,7 +384,7 @@ aside {
 
 aside ul {
   text-align: left;
-  padding: 34px 0;
+  padding: 34px 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -394,6 +394,12 @@ aside ul {
           flex-direction: column;
   gap: 20px;
   height: 100%;
+}
+
+@media (max-width: 767px) {
+  aside ul {
+    padding: 15px 0 0;
+  }
 }
 
 aside ul li {

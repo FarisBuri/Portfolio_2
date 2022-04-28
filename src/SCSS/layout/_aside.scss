@@ -15,7 +15,11 @@ aside {
     box-shadow:  0 2px 15px #ccc;
     ul {
         text-align: left;
-        padding:34px 0;
+        padding:34px 0 0;
+        @include breakPoint(mobile) {
+            padding:15px 0 0;
+
+        }
         display: flex;
         flex-direction: column;
         gap: 20px;

@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react'
-import { useState as State } from 'react';
-import { useEffect as Effect } from 'react';
+import { useState as State} from 'react';
+import { useEffect as Effect} from 'react';
 function header() {
-  let myName:string[] = "Eliot Evergarden".split("");
+  let myName:string[] = "Eliot Evergarden".split(""),
+      animationDelay:number[] = [0,6,20,30,12,20,2,18,4,12,6,14,16];
   let [isHidden,setHidden] = State(true);
   let [isRotate,setRotate] = State(true);
-  Effect(()=>{
+  let handleAnimation = () =>{
     let menu = document.querySelector(".menu");
     menu!.addEventListener("click",e => {
         menu!.children[0].setAttribute("class", isRotate ? "rotateMenu1":"");
@@ -16,24 +17,15 @@ function header() {
        setRotate(!isRotate);
     })
     
-  },[isHidden,isRotate]);
+  };
   return (
     <header className='text-white p-3'>
+      {/* Square Animation */}
       <ul>
-       <li style={{animationDelay:"calc(0.1s * 0)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 6)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 20)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 30)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 12)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 20)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 2)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 18)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 4)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 12)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 6)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 14)"}}></li>
-       <li style={{animationDelay:"calc(0.1s * 16)"}}></li>
+       {animationDelay.map((delay,index) => <li key={index} style={{animationDelay:`calc(0.1s * ${delay})`}}></li>)}
+      
       </ul>
+      {/* Logo With Name & Job */}
        <div className='provide d-sm-block d-md-flex align-items-center'>
         <div className="image bg-white p-1 rounded-circle mx-auto">
             <img src={require('../images/face.png')} alt="Face Smile "/> 
@@ -45,6 +37,7 @@ function header() {
             <p className='m-0' data-element="Full Stack Developer F ^_^ As Designer">Full Stack Developer ^_^ As Designer </p>
           </div>
        </div>
+       {/* Social Media  */}
         <div className='links px-5'>
           <h5>Contact Me : </h5> 
           <ul>
@@ -53,7 +46,8 @@ function header() {
             <a href="https://github.com/FarisBuri"><i data-social="Github" className='fa-brands fa-github-alt'></i></a>
           </ul>
         </div>
-        <div className="menu"> 
+        {/* Menu To Open Nav */}
+        <div className="menu" onClick={()=>handleAnimation()}> 
             <span></span>
             <span></span>
         </div>
