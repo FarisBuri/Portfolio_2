@@ -1,15 +1,19 @@
 import React from 'react'
-import { useState as State , useRef as Ref} from 'react';
+import { useState as State , useRef as Ref, useEffect as Effect} from 'react';
 function header(props:any) {
+  // Start Declration Variables 
   let myName:string[] = "Eliot Evergarden".split(""),
-      animationDelay:number[] = [0,6,20,30,12,20,2,18,4,12,6,14,16],
+  animationDelay:number[] = [0,6,20,30,12,20,2,18,4,12,6,14,16],
      [isHidden,setHidden] = State(true),
      [isRotate,setRotate] = State(true),
      refMneu = Ref(null),
-     handleAnimation = () =>{
-    let menu:any = refMneu.current!;
+     refHeader = Ref(null);
+    // End Declration Variables 
+    // Start Hand Aniamtion Open Aside
+    let handleAnimation = () =>{
+      let menu:any = refMneu.current!;
     Array.from(menu.children).forEach((e:any) => {
-        menu.addEventListener("click",() => {
+      menu.addEventListener("click",() => {
         menu!.children[0].setAttribute("class", isRotate ? "rotateMenu1":"");
         menu!.children[1].setAttribute("class", isRotate ? "rotateMenu2":"");
         props.getElement.current!.setAttribute("class",isHidden ?"hidden":"");
@@ -20,8 +24,15 @@ function header(props:any) {
     });
     
   };
+  // End Hand Aniamtion Open Aside
+ Effect(()=>{
+   isHidden && handleAnimation();
+   let header:any = refHeader.current;
+   props.getElement.current!.style.height = ( window.innerHeight - header!.clientHeight )+ "px";
+  },[]);
+  
   return (
-    <header className='text-white p-3'>
+    <header className='text-white p-3' ref={refHeader}>
       {/* Square Animation */}
       <ul>
        {animationDelay.map((delay,index) => <li key={index} style={{animationDelay:`calc(0.1s * ${delay})`}}></li>)}
@@ -36,7 +47,7 @@ function header(props:any) {
             <h4 className='text-left'>
               {myName.map((letter,index)=> <span key={index} className={letter.includes(" ")?"empty-span":""} style={{transitionDelay:`calc(0.1s * (${index} / 2))`}} >{letter}</span>)}
             </h4>
-            <p className='m-0' data-element="Full Stack Developer F ^_^ As Designer">Full Stack Developer ^_^ As Designer </p>
+            <p className='m-0' data-element="Full Stack Developer ^_^ As Designer">Full Stack Developer ^_^ As Designer </p>
           </div>
        </div>
        {/* Social Media  */}
@@ -48,7 +59,7 @@ function header(props:any) {
             <a href="https://github.com/FarisBuri"><i data-social="Github" className='fa-brands fa-github-alt'></i></a>
           </ul>
         </div>
-        {/* Menu To Open Nav */}
+        {/* Menu To Open Aside */}
         <div className="menu" ref={refMneu} onClick={handleAnimation}> 
             <span></span>
             <span></span>
