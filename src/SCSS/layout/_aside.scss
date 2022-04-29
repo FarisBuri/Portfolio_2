@@ -72,10 +72,12 @@ aside {
                 color: $mainColor;
             }
             label {
+                z-index: -1;
                 position: relative;
                 -webkit-text-fill-color: #333;
                 white-space: nowrap;
                 margin: 10px 0;
+                transition: 10s;
                 &::before {
                     content:attr(data-fill);
                     overflow: hidden; 
@@ -94,6 +96,7 @@ aside {
                 height: 2px;
                 width: 100%;
                 left: -2px;
+                transition: 1s;
                 &::before {
                     content: "";
                     position: absolute; 
@@ -112,17 +115,38 @@ aside {
             }
         }
         .active {
-            &:before,
+            &:after {
+                transition: .3s;
+                transition-delay: .1s;
+                left: 0;
+            }
+            
+           
             span{
-                
-                background-color: $mainColor;
+                transition: 2s;
+                &::before {
+                    transition: .5s;
+                    transition-delay: .2s;
+                    transition-timing-function: linear ;
+                    left: -2px;
+                }
             }
             i
              {
+                 transition-delay: .4s;
+                transition: .4s;
                 color: $mainColor;
             }
             label {
-                -webkit-text-fill-color: $mainColor
+                transition: .5s;
+                transition-delay: 5s;
+                // -webkit-text-fill-color: $mainColor;
+                &::before {
+                    transition: .5s;
+                    transition-delay: .5s;                                     
+                    transition-timing-function: linear ;
+                    width: 100%;
+                }
             }
         }
     }

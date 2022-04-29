@@ -470,10 +470,13 @@ aside ul li:hover i {
 }
 
 aside ul li label {
+  z-index: -1;
   position: relative;
   -webkit-text-fill-color: #333;
   white-space: nowrap;
   margin: 10px 0;
+  -webkit-transition: 10s;
+  transition: 10s;
 }
 
 aside ul li label::before {
@@ -495,6 +498,8 @@ aside ul li span {
   height: 2px;
   width: 100%;
   left: -2px;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 aside ul li span::before {
@@ -516,16 +521,51 @@ aside ul li i {
           transition-delay: .3s;
 }
 
-aside ul .active:before,
+aside ul .active:after {
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transition-delay: .1s;
+          transition-delay: .1s;
+  left: 0;
+}
+
 aside ul .active span {
-  background-color: var(--main-color);
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+aside ul .active span::before {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  left: -2px;
 }
 
 aside ul .active i {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+  -webkit-transition: .4s;
+  transition: .4s;
   color: var(--main-color);
 }
 
 aside ul .active label {
-  -webkit-text-fill-color: var(--main-color);
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transition-delay: 5s;
+          transition-delay: 5s;
+}
+
+aside ul .active label::before {
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

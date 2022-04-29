@@ -1,21 +1,23 @@
-import React, { ReactNode } from 'react'
-import { useState as State} from 'react';
-import { useEffect as Effect} from 'react';
-function header() {
+import React from 'react'
+import { useState as State , useRef as Ref} from 'react';
+function header(props:any) {
   let myName:string[] = "Eliot Evergarden".split(""),
-      animationDelay:number[] = [0,6,20,30,12,20,2,18,4,12,6,14,16];
-  let [isHidden,setHidden] = State(true);
-  let [isRotate,setRotate] = State(true);
-  let handleAnimation = () =>{
-    let menu = document.querySelector(".menu");
-    menu!.addEventListener("click",e => {
+      animationDelay:number[] = [0,6,20,30,12,20,2,18,4,12,6,14,16],
+     [isHidden,setHidden] = State(true),
+     [isRotate,setRotate] = State(true),
+     refMneu = Ref(null),
+     handleAnimation = () =>{
+    let menu:any = refMneu.current!;
+    Array.from(menu.children).forEach((e:any) => {
+        menu.addEventListener("click",() => {
         menu!.children[0].setAttribute("class", isRotate ? "rotateMenu1":"");
         menu!.children[1].setAttribute("class", isRotate ? "rotateMenu2":"");
-      //  menu!.children[1].classList.toggle("rotateMenu2");
-       document.querySelector("aside")!.setAttribute("class",isHidden ?"hidden":"");
+        props.getElement.current!.setAttribute("class",isHidden ?"hidden":"");
        setHidden(!isHidden);
        setRotate(!isRotate);
+       console.log("We Dead Bruh");
     })
+    });
     
   };
   return (
@@ -47,7 +49,7 @@ function header() {
           </ul>
         </div>
         {/* Menu To Open Nav */}
-        <div className="menu" onClick={()=>handleAnimation()}> 
+        <div className="menu" ref={refMneu} onClick={handleAnimation}> 
             <span></span>
             <span></span>
         </div>
