@@ -12,7 +12,7 @@ function Aside(props:any) {
     {page: "About Me",icon: "fa fa-user"},
     {page: "Resume",icon: "fa fa-file-pdf"},
     {page: "Services",icon: "fa-solid fa-face-grin-squint"},
-    {page: "Skills",icon: "fa-solid fa-briefcase"},
+    {page: "Projects",icon: "fa-solid fa-briefcase"},
     {page: "Testimonials",icon: "fa-brands fa-slideshare"}
   ];
   let navCount:number = Number(pages.length - 1),

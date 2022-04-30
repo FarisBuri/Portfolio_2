@@ -4,6 +4,8 @@ header {
     position: relative;
     user-select: none;
     @include flexBetween;
+    width: 100%;
+    z-index: 10;
     @include breakPoint(mobile) {
         display: block;
         // background: radial-gradient($mainColor 80%, $lightYellow);

@@ -4,10 +4,10 @@ function header(props:any) {
   // Start Declration Variables 
   let myName:string[] = "Eliot Evergarden".split(""),
   animationDelay:number[] = [0,6,20,30,12,20,2,18,4,12,6,14,16],
-     [isHidden,setHidden] = State(true),
-     [isRotate,setRotate] = State(true),
-     refMneu = Ref(null),
-     refHeader = Ref(null);
+  [isHidden,setHidden] = State(true),
+  [isRotate,setRotate] = State(true),
+  refMneu = Ref(null),
+  refHeader = Ref(null);
     // End Declration Variables 
     // Start Hand Aniamtion Open Aside
     let handleAnimation = () =>{
@@ -26,9 +26,11 @@ function header(props:any) {
   };
   // End Hand Aniamtion Open Aside
  Effect(()=>{
+  let header:any = refHeader.current;
    isHidden && handleAnimation();
-   let header:any = refHeader.current;
    props.getElement.current!.style.height = ( window.innerHeight - header!.clientHeight )+ "px";
+   props.getElement.current!.style.setProperty("--heihgt",( window.innerHeight - header!.clientHeight )+ "px");
+    
   },[]);
   
   return (
@@ -41,7 +43,7 @@ function header(props:any) {
       {/* Logo With Name & Job */}
        <div className='provide d-sm-block d-md-flex align-items-center'>
         <div className="image bg-white p-1 rounded-circle mx-auto">
-            <img src={require('../images/face.png')} alt="Face Smile "/> 
+            <img src='../../images/face.png' alt="Face Smile "/> 
           </div>
           <div className='text'>
             <h4 className='text-left'>

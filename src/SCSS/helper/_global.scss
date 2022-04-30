@@ -3,12 +3,22 @@
     font-family: 'Open Sans', sans-serif;
 }
 ::selection {
-    background-color: white;
-    color: $mainColor
+    color: white;
+    background-color: $mainColor
 }
 a {
     text-decoration: none;
 }
 li {
     list-style: none;
+}
+
+.svg {
+    position: absolute;
+    left: 0;
+    bottom: -45px;
+}
+p,
+aside {
+    text-transform: capitalize; 
 }
