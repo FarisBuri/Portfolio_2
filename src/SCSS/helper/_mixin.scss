@@ -14,7 +14,7 @@
         @media (max-width: 767px) {
         @content;
     }} 
-    @if($value == "small") {
+    @if($value == "md") {
         @media (max-width: 991px) {
         @content;
     }} 

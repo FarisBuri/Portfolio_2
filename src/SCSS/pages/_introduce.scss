@@ -6,6 +6,10 @@
         }
     }
     article {
+        &:hover .title::after {
+            transition: 1s;
+            width: 100%;
+        }
         .title {
             position: relative;
             justify-content: left;
@@ -33,7 +37,9 @@
                 width: 40%;
                 height: 10px;
                 border-radius: 10px;
+                transition: 1s;
             }
+           
             h3 {
             
             }
@@ -66,6 +72,8 @@
             color: #333;
             text-align: left;
             span {
+                cursor: text;
+                user-select: all;
                 color: #999;
 
             }

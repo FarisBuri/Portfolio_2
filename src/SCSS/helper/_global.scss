@@ -16,9 +16,23 @@ li {
 .svg {
     position: absolute;
     left: 0;
-    bottom: -45px;
+    bottom: -50px;
+    z-index: -1;
+    // transition: 2s;
+    animation: waving 9.8s infinite alternate;
 }
 p,
 aside {
     text-transform: capitalize; 
+}
+
+@keyframes waving {
+    from {
+        
+        transform: translateX(60px) skew(20deg, -5deg);
+    }
+    to {
+        transform: translateX(25px) skew(-20deg, 0deg);
+
+    }
 }

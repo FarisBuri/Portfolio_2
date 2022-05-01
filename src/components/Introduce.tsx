@@ -6,7 +6,7 @@ function Introduce() {
   ];
   
   return (
-    <div className='introduce d-flex h-100 align-items-center p-3'>
+    <div className='introduce d-flex h-100 align-items-center'>
       <div className='image'>
       <img src={"../images/introduce.png"} className="d-none d-lg-block" alt="" />
       </div>
