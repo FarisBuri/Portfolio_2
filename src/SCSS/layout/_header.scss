@@ -6,226 +6,264 @@ header {
     @include flexBetween;
     width: 100%;
     z-index: 10;
+
     @include breakPoint(mobile) {
         display: block;
         // background: radial-gradient($mainColor 80%, $lightYellow);
-    
+
     }
+
     header:hover {
         background-color: red;
     }
+
     >ul {
         position: absolute;
         right: -40px;
         top: -90px;
+
         @media (max-width: 550px) {
             display: none;
         }
+
         li {
             width: 30px;
             height: 30px;
             background-color: $lightGreen;
             border-radius: 5px;
             border: 2px solid $lightYellow;
-            animation: move 2.5s linear infinite;       
+            animation: move 2.5s linear infinite;
             box-shadow: 0 2px 15px $lightYellow
+        }
+    }
 
-        }
-    }
-   .provide {
-       gap: 10px;
-       cursor: pointer;
-       &:hover .image {
-        transition: .3s;
-        box-shadow: 0 2px 15px #090606;
-       }
-       &:hover .text h4 span {
-        transition-delay: 5s;
-        transition-duration: .1s;
-        transform: translateY(-5px);
-       }
-       &:hover .text p:before {
-        content: attr(data-element);
-        position: absolute;
-        left: 0px;
-        top: 15px;
-        transform: rotate(180deg) scaleX(-1);
-        color: #f9f9f940;
-        @media (max-width: 767px) and (min-width: 570px) {
-            left: 50%;
-            top: 15px;
-            transform: translateX(-50%) rotate(180deg) scaleX(-1);
-        }
-        @media (max-width: 560px) {
-            left: 50%;
-            top: 15px;
-            display: none;
-            transform: translateX(-50%) rotate(180deg) scaleX(-1);
-        }
-       }
-    .image {
-        width: fit-content;
-        position: relative;
-        cursor: pointer;
-        // background-color: red !important;
-        img {
-            height: 75px;
-            width: 75px;
-        }
-    }
-    .text {
-        text-align: left;
-        @include breakPoint(mobile) {
-            text-align: center;
-            padding: 10px 0;
-        }
-        
-        h4 {
-            cursor: pointer;
-            margin: 0;
-            span {
-                display: inline-block;
-                transition: .3s;
-            }
-            .empty-span {
-                display: inline;
-            }
-
-        }
-        p {
-            position: relative;
-            transition: 1s;
-        }
-    }
-   }
-.links {
-    z-index: 3;
-    h4{
-        
-    }
-    ul {
-        margin: 0;
-        display: flex;
+    .provide {
         gap: 10px;
-        @include breakPoint(mobile) {
-            padding: 0;
-            justify-content: center;
+        cursor: pointer;
+
+        &:hover .image {
+            transition: .3s;
+            box-shadow: 0 2px 15px #090606;
         }
-        a {
-            height: 35px;
-            width: 35px;
-            background-color: white;
-            border-radius: 50%;
-            color: $mainColor;
-            font-size: 25px;
-            @include flexCenter;
+
+        &:hover .text h4 span {
+            transition-delay: 5s;
+            transition-duration: .1s;
+            transform: translateY(-5px);
+        }
+
+        &:hover .text p:before {
+            content: attr(data-element);
+            position: absolute;
+            left: 0px;
+            top: 15px;
+            transform: rotate(180deg) scaleX(-1);
+            color: #f9f9f940;
+
+            @media (max-width: 767px) and (min-width: 570px) {
+                left: 50%;
+                top: 15px;
+                transform: translateX(-50%) rotate(180deg) scaleX(-1);
+            }
+
+            @media (max-width: 560px) {
+                left: 50%;
+                top: 15px;
+                display: none;
+                transform: translateX(-50%) rotate(180deg) scaleX(-1);
+            }
+        }
+
+        .image {
+            width: fit-content;
             position: relative;
-            &::before {
-                content: "";
-                position: absolute;
+            cursor: pointer;
+
+            transition: 1s;
+
+            // background-color: red !important;
+            img {
+                height: 75px;
+                width: 75px;
+            }
+        }
+
+        .text {
+            text-align: left;
+
+            @include breakPoint(mobile) {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            h4 {
+                cursor: pointer;
+                margin: 0;
+
+                span {
+                    display: inline-block;
+                    transition: .3s;
+                }
+
+                .empty-span {
+                    display: inline;
+                }
+
+            }
+
+            p {
+                position: relative;
+                transition: 1s;
+            }
+        }
+    }
+
+    .links {
+        z-index: 3;
+
+        h4 {}
+
+        ul {
+            margin: 0;
+            display: flex;
+            gap: 10px;
+
+            @include breakPoint(mobile) {
+                padding: 0;
+                justify-content: center;
+            }
+
+            a {
+                height: 35px;
+                width: 35px;
+                background-color: white;
                 border-radius: 50%;
-                height: 100%;
-                width: 100%;
-                top: 0;
-                left: 0;
-                
+                color: $mainColor;
+                font-size: 25px;
+                @include flexCenter;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    border-radius: 50%;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
 
 
-            }
-            &:hover::before {
-                border: 1px dashed green;
-                animation:border, rotate 1s 2 alternate;
 
-            }
-            &:hover {
-                animation: rotate 1s;
-            }
-            &:hover i {
+                }
 
-            }
-            
-            i {
-                
+                &:hover::before {
+                    border: 1px dashed green;
+                    animation: border, rotate 1s 2 alternate;
+
+                }
+
+                &:hover {
+                    animation: rotate 1s;
+                }
+
+                &:hover i {}
+
+                i {}
             }
         }
     }
 }
-}
+
 .menu {
     display: none;
     width: 23px;
     height: 22px;
     margin: 15px auto 0;
     cursor: pointer;
+
     @include breakPoint(mobile) {
         display: block;
     }
-   .rotateMenu2 {
+
+    .rotateMenu2 {
         transition: 1s;
         transform: translate(0, 32px) rotate(180deg);
     }
+
     .rotateMenu1 {
         transition: 1s;
         transform: rotate(-360deg);
     }
+
     span {
         transition: 1s;
         cursor: pointer;
         display: block;
         position: relative;
+
         &::before,
         &::after {
-            content:"";
+            content: "";
             position: absolute;
             background-color: white;
             height: 14px;
             width: 2px;
             top: 0;
         }
+
         &::before {
             transform: rotate(45deg);
             left: 15px;
         }
+
         &::after {
             left: 6px;
             transform: rotate(-45deg);
         }
+
         &:last-child {
-           
+
             &::before,
             &::after {
                 height: 14px;
-                top:  9px;
+                top: 9px;
             }
+
             &::before {
                 left: 15px;
             }
+
             &::after {
-                left: 6px; 
+                left: 6px;
             }
         }
     }
-    
+
 }
 
 @keyframes rotate {
-    
+
     100% {
         transform: rotate(360deg);
     }
 }
-@keyframes move  {
-    
+
+@keyframes move {
+
     100% {
-        transform: translate(-300px, 300px) rotate(360deg) ;
+        transform: translate(-300px, 300px) rotate(360deg);
     }
 }
-@keyframes up  {
-    0%,100% {
 
-        transform: trasnlateY(0px) ;
+@keyframes up {
+
+    0%,
+    100% {
+
+        transform: trasnlateY(0px);
     }
+
     50% {
-        transform: trasnlateY(-5px) ;
+        transform: trasnlateY(-5px);
     }
 }

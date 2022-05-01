@@ -1,36 +1,51 @@
 :root {
     --height: 0;
 }
-.hidden{
+
+.hidden {
     opacity: 1 !important;
     transition: 1s !important;
-    height: var(--height);
+    height: var(--height) !important;
     transform: translateY(0);
     z-index: 5;
 }
+
 aside {
     width: 200px;
-    @include breakPoint(mobile){
-        transform: translateY(-100px);
-        height: 0px !important;
-        width:100%;
-        z-index:-1;
-        opacity: 0;
+    position: relative;
+    overflow: hidden;
+
+    @include breakPoint(mobile) {
+        width: 100%;
+        z-index: -1;
+        // opacity: 0;
         transition: 1s;
+        transform: translateY(-370px);
+        height: 0 !important;
+
     }
-    box-shadow:  0 2px 15px #ccc;
+
+    box-shadow: 0 2px 15px #ccc;
+
     ul {
         text-align: left;
-        padding:34px 0 0;
+        padding: 34px 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
         @include breakPoint(mobile) {
-            padding:15px 0 0;
+            padding: 15px 0 0;
             gap: 15px;
 
         }
+
         display: flex;
         flex-direction: column;
         gap: 20px;
         height: 100%;
+
         li {
             font-weight: 500;
             flex: 1;
@@ -38,18 +53,21 @@ aside {
             padding: 0 10px;
             padding-left: 30px;
             position: relative;
-            &:hover label:before{
+
+            &:hover label:before {
                 transition: .5s;
                 transition-delay: .5s;
-                transition-timing-function: linear ;
+                transition-timing-function: linear;
                 width: 100%;
             }
+
             &:hover span::before {
                 transition: .5s;
                 transition-delay: .2s;
-                transition-timing-function: linear ;
+                transition-timing-function: linear;
                 left: -2px;
             }
+
             &:before,
             &:after {
                 content: "";
@@ -61,6 +79,7 @@ aside {
                 height: 2px;
                 // background-color: #f6f6f6;
             }
+
             &:after {
                 z-index: 2;
                 background-color: $mainColor;
@@ -68,16 +87,19 @@ aside {
                 transition: 1s;
                 transition-delay: .8s;
             }
+
             &:hover::after {
                 transition: .5s;
-                transition-timing-function: linear ;
+                transition-timing-function: linear;
                 left: 0;
             }
+
             &:hover i {
                 transition: .3s;
                 transition-delay: .4s;
                 color: $mainColor;
             }
+
             label {
                 z-index: -1;
                 position: relative;
@@ -85,9 +107,10 @@ aside {
                 white-space: nowrap;
                 margin: 10px 0;
                 transition: 10s;
+
                 &::before {
-                    content:attr(data-fill);
-                    overflow: hidden; 
+                    content: attr(data-fill);
+                    overflow: hidden;
                     position: absolute;
                     left: 0px;
                     top: 0px;
@@ -96,6 +119,7 @@ aside {
                     transition: 1s;
                 }
             }
+
             span {
                 display: block;
                 position: absolute;
@@ -104,9 +128,10 @@ aside {
                 width: 100%;
                 left: -2px;
                 transition: 1s;
+
                 &::before {
                     content: "";
-                    position: absolute; 
+                    position: absolute;
                     width: 100%;
                     left: -100%;
                     height: 2px;
@@ -115,47 +140,52 @@ aside {
 
                 }
             }
+
             i {
                 margin-right: 10px;
                 transition: 1s;
                 transition-delay: .3s;
             }
         }
+
         .active {
             &:after {
                 transition: .3s;
                 transition-delay: .1s;
                 left: 0;
             }
-            
-           
-            span{
+
+
+            span {
                 transition: 2s;
+
                 &::before {
                     transition: .5s;
                     transition-delay: .2s;
-                    transition-timing-function: linear ;
+                    transition-timing-function: linear;
                     left: -2px;
                 }
             }
-            i
-             {
-                 transition-delay: .4s;
+
+            i {
+                transition-delay: .4s;
                 transition: .4s;
                 color: $mainColor;
             }
+
             label {
                 transition: .5s;
                 transition-delay: 5s;
+
                 // -webkit-text-fill-color: $mainColor;
                 &::before {
                     transition: .5s;
-                    transition-delay: .5s;                                     
-                    transition-timing-function: linear ;
+                    transition-delay: .5s;
+                    transition-timing-function: linear;
                     width: 100%;
                 }
             }
         }
     }
-    
+
 }

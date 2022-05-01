@@ -2,21 +2,20 @@ import React from 'react'
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 
-
-function Aside(props: any) {
+function Aside({ transfare, counter: [counter, setCounter] }: any) {
   // Start Declration Variables
   let refPageLi = useRef(null),
-    refPageUl = useRef(null);
-  let pages = [
-    { page: "Home", icon: "fa fa-home" },
-    { page: "Skills", icon: "fa fa-laptop-code" },
-    { page: "Resume", icon: "fa fa-file-pdf" },
-    { page: "Services", icon: "fa-solid fa-face-grin-squint" },
-    { page: "Projects", icon: "fa-solid fa-briefcase" },
-    { page: "Testimonials", icon: "fa-brands fa-slideshare" }
-  ];
-  let navCount: number = Number(pages.length - 1),
-    [counter, setCounter] = useState<number>(1);
+    refPageUl = useRef(null),
+    pages = [
+      { page: "Home", icon: "fa fa-home" },
+      { page: "Skills", icon: "fa fa-laptop-code" },
+      { page: "Resume", icon: "fa fa-file-pdf" },
+      { page: "Services", icon: "fa-solid fa-face-grin-squint" },
+      { page: "Projects", icon: "fa-solid fa-briefcase" },
+      { page: "Testimonials", icon: "fa-brands fa-slideshare" }
+    ];
+  let navCount: number = Number(pages.length - 1);
+
   // End Declration Variables
 
   //  Start Functions When [Wheel , Click] Choice On Aside
@@ -24,13 +23,13 @@ function Aside(props: any) {
   window.onwheel = (e) => {
     if (e.deltaY > 0) {
 
-      counter === navCount ? setCounter((prev) => prev = 0) : setCounter((prev) => prev + 1);
-      console.log("Down", counter);
-      removeAddWheel(counter);
+      counter === navCount ? setCounter((prev: any) => prev = 0) : setCounter((prev: any) => prev + 1);
 
+      // console.log("Down", counter);
+      removeAddWheel(counter);
     } else {
-      counter === 0 ? setCounter((prev) => prev = navCount) : setCounter((prev) => prev - 1);
-      console.log("Top", counter);
+      counter === 0 ? setCounter((prev: any) => prev = navCount) : setCounter((prev: any) => prev - 1);
+      // console.log("Top", counter);
       removeAddWheel(counter);
     }
   };
@@ -40,7 +39,8 @@ function Aside(props: any) {
       li.classList.remove("active");
     });
     e.target.classList.add("active");
-    setCounter((prev) => prev = e.target.dataset.count - 1);
+    // setCounter((prev: any) => prev = e.target.dataset.count - 1);
+    setCounter(counter = e.target.dataset.count - 1);
   }
   let removeAddWheel = (counter: number) => {
     let ul: any = refPageUl.current!;
@@ -57,7 +57,7 @@ function Aside(props: any) {
   }, []);
 
   return (
-    <aside className="" ref={props.transfare}>
+    <aside className="" ref={transfare}>
       <ul className='pages' ref={refPageUl}>
         {pages.map(({ page, icon }, index) =>
           <li key={index} data-count={index} ref={refPageLi} onClick={(e) => AddRemoveClick(e)}>

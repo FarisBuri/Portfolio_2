@@ -177,6 +177,8 @@ header .provide .image {
   width: fit-content;
   position: relative;
   cursor: pointer;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 header .provide .image img {
@@ -376,7 +378,8 @@ header .links ul a:hover {
 }
 
 @-webkit-keyframes up {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: trasnlateY(0px);
             transform: trasnlateY(0px);
   }
@@ -387,7 +390,8 @@ header .links ul a:hover {
 }
 
 @keyframes up {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: trasnlateY(0px);
             transform: trasnlateY(0px);
   }
@@ -405,7 +409,7 @@ header .links ul a:hover {
   opacity: 1 !important;
   -webkit-transition: 1s !important;
   transition: 1s !important;
-  height: var(--height);
+  height: var(--height) !important;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   z-index: 5;
@@ -413,26 +417,31 @@ header .links ul a:hover {
 
 aside {
   width: 200px;
+  position: relative;
+  overflow: hidden;
   -webkit-box-shadow: 0 2px 15px #ccc;
           box-shadow: 0 2px 15px #ccc;
 }
 
 @media (max-width: 767px) {
   aside {
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
-    height: 0px !important;
     width: 100%;
     z-index: -1;
-    opacity: 0;
     -webkit-transition: 1s;
     transition: 1s;
+    -webkit-transform: translateY(-370px);
+            transform: translateY(-370px);
+    height: 0 !important;
   }
 }
 
 aside ul {
   text-align: left;
   padding: 34px 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -624,6 +633,7 @@ aside ul .active label::before {
 }
 
 .introduce .image img {
+  border-radius: 80px;
   width: 500px;
 }
 
