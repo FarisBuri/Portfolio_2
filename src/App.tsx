@@ -7,16 +7,23 @@ import { useRef } from 'react';
 import ParentSection from './components/ParentSection';
 import Introduce from './components/Introduce';
 
-
-
+let counter = 0;
 function App() {
-  let refAside = useRef(null),
-    [counter, setCounter] = useState(0);
+  function setCounter(value: any) {
+    setUpdate(value);
+    counter = value;
+    console.log("within", counter, value)
+  }
+  function getCounter() {
+    return counter;
+  }
+  let refAside = useRef(null);
+  let [update, setUpdate] = useState(0);
   return (
     <div className="App">
       <Header getElement={refAside} />
-      <Aside transfare={refAside} counter={[counter, setCounter]} />
-      <ParentSection getElement={refAside} count={counter} />
+      <Aside transfare={refAside} counter={[getCounter, setCounter]} />
+      <ParentSection getElement={refAside} count={getCounter} update={setUpdate} />
     </div>
   );
 }

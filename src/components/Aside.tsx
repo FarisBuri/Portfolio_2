@@ -2,7 +2,7 @@ import React from 'react'
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 
-function Aside({ transfare, counter: [counter, setCounter] }: any) {
+function Aside({ transfare, counter: [getCounter, setCounter] }: any) {
   // Start Declration Variables
   let refPageLi = useRef(null),
     refPageUl = useRef(null),
@@ -23,14 +23,14 @@ function Aside({ transfare, counter: [counter, setCounter] }: any) {
   window.onwheel = (e) => {
     if (e.deltaY > 0) {
 
-      counter === navCount ? setCounter((prev: any) => prev = 0) : setCounter((prev: any) => prev + 1);
+      getCounter() === navCount ? setCounter(0) : setCounter(getCounter() + 1);
 
-      // console.log("Down", counter);
-      removeAddWheel(counter);
+      console.log("Down", getCounter());
+      removeAddWheel(getCounter());
     } else {
-      counter === 0 ? setCounter((prev: any) => prev = navCount) : setCounter((prev: any) => prev - 1);
-      // console.log("Top", counter);
-      removeAddWheel(counter);
+      getCounter() === 0 ? setCounter(navCount) : setCounter(getCounter() - 1);
+      console.log("Top", getCounter());
+      removeAddWheel(getCounter());
     }
   };
   let AddRemoveClick = (e: any) => {
@@ -40,7 +40,7 @@ function Aside({ transfare, counter: [counter, setCounter] }: any) {
     });
     e.target.classList.add("active");
     // setCounter((prev: any) => prev = e.target.dataset.count - 1);
-    setCounter(counter = e.target.dataset.count - 1);
+    setCounter(e.target.dataset.count);
   }
   let removeAddWheel = (counter: number) => {
     let ul: any = refPageUl.current!;
@@ -71,4 +71,4 @@ function Aside({ transfare, counter: [counter, setCounter] }: any) {
   )
 }
 
-export default React.memo(Aside)
+export default Aside
