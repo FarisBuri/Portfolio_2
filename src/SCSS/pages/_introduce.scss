@@ -2,6 +2,10 @@
     user-select: none;
     animation: show 1s linear;
 
+    @media(max-width: 500px) {
+        margin-top: 10px;
+    }
+
     .image {
         img {
             border-radius: 80px;
@@ -10,6 +14,8 @@
     }
 
     article {
+        overflow: hidden;
+
         &:hover .title::after {
             transition: 1s;
             width: 100%;
@@ -19,11 +25,15 @@
             position: relative;
             justify-content: left;
             width: fit-content;
+            margin-bottom: 30px;
 
             @include breakPoint(mobile) {
                 justify-content: center;
-                margin: 0 auto;
+                margin-bottom: 30px;
 
+                &.introduce {
+                    margin: 0 auto 30px;
+                }
             }
 
             &::before,
@@ -55,6 +65,7 @@
         }
 
         p {
+
             text-align: left;
 
             @include breakPoint(mobile) {
@@ -64,6 +75,22 @@
             color: #777;
             line-height: 1.5;
             word-spacing: 1px;
+        }
+
+        pre {
+            margin-left: -15px;
+            margin-top: -25px;
+            text-align: left;
+            color: #777;
+            text-transform: capitalize;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @media (max-width: 500px) {
+                font-size: 16px;
+            }
         }
 
         ul {

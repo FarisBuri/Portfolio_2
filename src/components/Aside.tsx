@@ -2,7 +2,8 @@ import React from 'react'
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
 
-function Aside({ transfare, counter: [getCounter, setCounter] }: any) {
+function Aside({ transfare, counter: [getCounter, setCounter], getElementMenu: refMenu }: any) {
+
   // Start Declration Variables
   let refPageLi = useRef(null),
     refPageUl = useRef(null),
@@ -23,13 +24,13 @@ function Aside({ transfare, counter: [getCounter, setCounter] }: any) {
   window.onwheel = (e) => {
     if (e.deltaY > 0) {
 
-      getCounter() === navCount ? setCounter(0) : setCounter(getCounter() + 1);
+      getCounter() >= navCount ? setCounter(0) : setCounter(getCounter() + 1);
 
-      console.log("Down", getCounter());
+      // console.log("Down", getCounter());
       removeAddWheel(getCounter());
     } else {
-      getCounter() === 0 ? setCounter(navCount) : setCounter(getCounter() - 1);
-      console.log("Top", getCounter());
+      getCounter() <= 0 ? setCounter(navCount) : setCounter(getCounter() - 1);
+      // console.log("Top", getCounter());
       removeAddWheel(getCounter());
     }
   };
@@ -39,8 +40,15 @@ function Aside({ transfare, counter: [getCounter, setCounter] }: any) {
       li.classList.remove("active");
     });
     e.target.classList.add("active");
-    // setCounter((prev: any) => prev = e.target.dataset.count - 1);
     setCounter(e.target.dataset.count);
+    // In Mobile Remove The Aside After click
+    if (uiCurrent.parentElement.classList.value === "hidden") {
+      uiCurrent.parentElement.classList.remove("hidden");
+
+      refMenu.current!.children[0].classList.remove("rotateMenu1");
+      refMenu.current!.children[1].classList.remove("rotateMenu2");
+    }
+    // console.log("Click", e.target, "Counter", getCounter());
   }
   let removeAddWheel = (counter: number) => {
     let ul: any = refPageUl.current!;

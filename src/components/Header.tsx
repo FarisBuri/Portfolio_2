@@ -19,13 +19,14 @@ function header(props: any) {
         props.getElement.current!.setAttribute("class", isHidden ? "hidden" : "");
         setHidden(!isHidden);
         setRotate(!isRotate);
-        console.log("We Dead Bruh");
       })
     });
 
   };
   // End Hand Aniamtion Open Aside
   Effect(() => {
+    // Set Menu To make in mobile work better 
+    props.transfareMenu.current = refMneu.current;
     let header: any = refHeader.current;
     isHidden && handleAnimation();
     props.getElement.current!.style.height = (window.innerHeight - header!.clientHeight) + "px";

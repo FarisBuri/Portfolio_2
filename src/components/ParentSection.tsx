@@ -2,18 +2,34 @@ import React from 'react'
 import { useRef } from 'react';
 import { useEffect } from 'react'
 import Introduce from './Introduce'
+import Services from './Services';
 import Skills from './Skills';
 
 function ParentSection({ getElement, count }: any) {
-  console.log(count());
-  let arr = [<Introduce />, <Skills />];
+  // Start Declare Variables
+
+  let textHome = "Hello I Am Eliot Evergarden working as full stack developer based on Saudi Arabia in jeddah, i have amazing experiance at devolpment & website creation",
+    textResume = `
+    - links to contact me.
+    - explain the eager of learning. 
+    - experience as freelancer & graduate project. 
+    - programming skills.
+    i hope this resume Get your satisfaction. and thank you`
+  let arr = [
+    <Introduce img={"introduce.png"} title={"Who Am I"} face={"laughing.png"} text={textHome} social={true} tab="Introduce" />,
+    <Skills />,
+    <Introduce img={"type.png"} title={"Resume Contains"} face={"smiling.png"} text={textResume} social={false} tab="Resume" />,
+    <Services />
+  ];
   let refSection = useRef(null);
+
+  // Start Declare Variables
   useEffect(() => {
     let section: any = refSection.current!;
     section.style.height = getElement.current.style.height;
     section.style.width = (window.innerWidth - 231) + "px";
   });
-  console.log("Parent", count());
+  // console.log("Parent", count());
   return (
     <section className='flex-grow-1' ref={refSection} style={{ position: "relative", overflow: "hidden", padding: "15px" }} >
       {arr[count()]}

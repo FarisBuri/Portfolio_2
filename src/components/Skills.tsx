@@ -1,12 +1,16 @@
 import React from 'react'
+import { useEffect } from 'react';
 
 function Skills() {
+    useEffect(() => {
+        document.title = "Skills"
+    })
     let skills = [
         { skill: "HTML 5", img: "html-5.png" },
         { skill: "PugJS", img: "pug.png" },
         { skill: "CSS 3", img: "css-3.png" },
         { skill: "SCSS", img: "sass.png" },
-        { skill: "Bootstrap 5", img: "bootstrap.png" },
+        { skill: "Bootstrap", img: "bootstrap.png" },
         { skill: "JS ES6", img: "javascript.png" },
         { skill: "Jest", img: "jest.png" },
         { skill: "React", img: "react.png" },
