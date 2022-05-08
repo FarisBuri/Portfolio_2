@@ -2,6 +2,7 @@ import React from 'react'
 import { useRef } from 'react';
 import { useEffect } from 'react'
 import Introduce from './Introduce'
+import Projects from './Projects';
 import Services from './Services';
 import Skills from './Skills';
 
@@ -19,7 +20,8 @@ function ParentSection({ getElement, count }: any) {
     <Introduce img={"introduce.png"} title={"Who Am I"} face={"laughing.png"} text={textHome} social={true} tab="Introduce" />,
     <Skills />,
     <Introduce img={"type.png"} title={"Resume Contains"} face={"smiling.png"} text={textResume} social={false} tab="Resume" />,
-    <Services />
+    <Services />,
+    <Projects />
   ];
   let refSection = useRef(null);
 
@@ -38,4 +40,4 @@ function ParentSection({ getElement, count }: any) {
   )
 }
 
-export default ParentSection
+export default React.memo(ParentSection);

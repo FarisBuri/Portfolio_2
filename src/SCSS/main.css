@@ -1120,4 +1120,204 @@ aside ul .active label::before {
 .services .box .image img {
   width: 60px;
 }
+
+.projects {
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 500px) {
+  .projects {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.projects .box {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 25vh;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+  .projects .box {
+    height: 16vh;
+  }
+  .projects .box:last-child, .projects .box:nth-of-type(7), .projects .box:nth-of-type(8) {
+    display: none;
+  }
+}
+
+.projects .box:before {
+  content: attr(data-project);
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: white;
+  width: 50%;
+  padding: 4px;
+  border-radius: 0 0 10px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  top: -100%;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-box-shadow: 0 2px 15px #ccc;
+          box-shadow: 0 2px 15px #ccc;
+}
+
+.projects .box:hover:before {
+  top: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  color: white;
+  background: var(--main-color);
+  -webkit-box-shadow: 0 2px 8px var(--light-yellow);
+          box-shadow: 0 2px 8px var(--light-yellow);
+}
+
+.projects .box:hover {
+  -webkit-box-shadow: 1px -1px 15px var(--light-yellow), -1px 1px 15px var(--main-color);
+          box-shadow: 1px -1px 15px var(--light-yellow), -1px 1px 15px var(--main-color);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.projects .box:hover .front-end {
+  bottom: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.projects .box .front-end {
+  -webkit-transition: 1s;
+  transition: 1s;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 11px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-top: 2px;
+  border-radius: 10px 10px 0 0;
+}
+
+.projects .box .front-end:before {
+  content: "Visit";
+  -webkit-transition: 1s;
+  transition: 1s;
+  bottom: 0;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: white;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0 10px 10px 0;
+  background: #4caf50;
+  color: white;
+  -webkit-writing-mode: vertical-lr;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.projects .box .front-end:after {
+  content: "";
+  position: absolute;
+  right: 110%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background-color: var(--main-color);
+  border: 2px solid var(--light-yellow);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 15px var(--light-yellow);
+          box-shadow: 0 2px 15px var(--light-yellow);
+}
+
+.projects .box .front-end ul {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  padding: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0px;
+}
+
+@media (max-width: 767px) {
+  .projects .box .front-end ul {
+    padding: 0px;
+    gap: 0px;
+  }
+}
+
+.projects .box .front-end ul strong {
+  display: block;
+  margin-left: -10px;
+  margin-bottom: 3px;
+}
+
+.projects .box .front-end ul li {
+  list-style-type: disc;
+}
+
+@-webkit-keyframes moveOneSquare {
+  0% {
+    right: 110%;
+    -webkit-transform: translateY(-50%) rotate(0deg);
+            transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    right: -13px;
+    -webkit-transform: translateY(-50%) rotate(360deg);
+            transform: translateY(-50%) rotate(360deg);
+    opacity: .1;
+  }
+}
+
+@keyframes moveOneSquare {
+  0% {
+    right: 110%;
+    -webkit-transform: translateY(-50%) rotate(0deg);
+            transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    right: -13px;
+    -webkit-transform: translateY(-50%) rotate(360deg);
+            transform: translateY(-50%) rotate(360deg);
+    opacity: .1;
+  }
+}
 /*# sourceMappingURL=main.css.map */
