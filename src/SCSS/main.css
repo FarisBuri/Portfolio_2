@@ -1127,6 +1127,8 @@ aside ul .active label::before {
   gap: 10px;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
+  -webkit-animation: show 1s linear;
+          animation: show 1s linear;
 }
 
 @media (max-width: 500px) {
@@ -1140,6 +1142,7 @@ aside ul .active label::before {
   position: relative;
   background-repeat: no-repeat;
   background-size: contain;
+  background-position-x: center;
   height: 25vh;
   position: relative;
   overflow: hidden;
@@ -1291,6 +1294,12 @@ aside ul .active label::before {
 
 .projects .box .front-end ul li {
   list-style-type: disc;
+}
+
+@media (max-width: 500px) {
+  .projects .box .front-end ul li {
+    font-size: 9px;
+  }
 }
 
 @-webkit-keyframes moveOneSquare {

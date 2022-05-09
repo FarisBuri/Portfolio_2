@@ -13,7 +13,7 @@ function Aside({ transfare, counter: [getCounter, setCounter], getElementMenu: r
       { page: "Resume", icon: "fa fa-file-pdf" },
       { page: "Services", icon: "fa-solid fa-face-grin-squint" },
       { page: "Projects", icon: "fa-solid fa-briefcase" },
-      { page: "Testimonials", icon: "fa-brands fa-slideshare" }
+      // { page: "Testimonials", icon: "fa-brands fa-slideshare" }
     ];
   let navCount: number = Number(pages.length - 1);
 

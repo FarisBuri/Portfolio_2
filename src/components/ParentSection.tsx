@@ -9,7 +9,7 @@ import Skills from './Skills';
 function ParentSection({ getElement, count }: any) {
   // Start Declare Variables
 
-  let textHome = "Hello I Am Eliot Evergarden working as full stack developer based on Saudi Arabia in jeddah, i have amazing experiance at devolpment & website creation",
+  let textHome = "Hello I Am Faris Buri working as full stack developer based on Saudi Arabia in jeddah, i have amazing experiance at devolpment & website creation",
     textResume = `
     - links to contact me.
     - explain the eager of learning. 

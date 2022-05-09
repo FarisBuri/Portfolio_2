@@ -3,7 +3,7 @@ import { useEffect } from "react";
 function Introduce({ img, title, text, social, face, tab }: any) {
   let info = [
     { name: "Phone :", value: "053 125 7557" },
-    { name: "Email :", value: "Eliot@gmail.com" },
+    { name: "Email :", value: "FarisBuri@gmail.com" },
     { name: "Freelancer", value: "Available" }
   ];
   useEffect(() => {

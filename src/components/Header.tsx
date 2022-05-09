@@ -2,7 +2,7 @@ import React from 'react'
 import { useState as State, useRef as Ref, useEffect as Effect } from 'react';
 function header(props: any) {
   // Start Declration Variables 
-  let myName: string[] = "Eliot Evergarden".split(""),
+  let myName: string[] = "Faris Buri".split(""),
     animationDelay: number[] = [0, 6, 20, 30, 12, 20, 2, 18, 4, 12, 6, 14, 16],
     [isHidden, setHidden] = State(true),
     [isRotate, setRotate] = State(true),
@@ -29,13 +29,21 @@ function header(props: any) {
     props.transfareMenu.current = refMneu.current;
     let header: any = refHeader.current;
     isHidden && handleAnimation();
+    document.body.style.overflow = "hidden";
     props.getElement.current!.style.height = (window.innerHeight - header!.clientHeight) + "px";
     props.getElement.current!.style.setProperty("--height", (window.innerHeight - header!.clientHeight) + "px");
     // Exception Because I can't Arrive To Body Without use document Yofi 
     document.body.style.height = window.innerHeight + "px";
-    document.body.style.overflow = "hidden";
-
+    props.getElement.current!.style.height = (window.innerHeight - header!.clientHeight) + "px";
+    window.onresize = () => {
+      props.getElement.current!.style.height = (window.innerHeight - header!.clientHeight) + "px";
+      props.getElement.current!.style.setProperty("--height", (window.innerHeight - header!.clientHeight) + "px");
+      // Exception Because I can't Arrive To Body Without use document Yofi 
+      document.body.style.height = window.innerHeight + "px";
+      props.getElement.current!.style.height = (window.innerHeight - header!.clientHeight) + "px";
+    }
   }, []);
+
 
   return (
     <header className='text-white p-3' ref={refHeader}>
@@ -53,7 +61,7 @@ function header(props: any) {
           <h4 className='text-left'>
             {myName.map((letter, index) => <span key={index} className={letter.includes(" ") ? "empty-span" : ""} style={{ transitionDelay: `calc(0.1s * (${index} / 2))` }} >{letter}</span>)}
           </h4>
-          <p className='m-0' data-element="Full Stack Developer ^_^ As Designer">Full Stack Developer ^_^ As Designer </p>
+          <p className='m-0' data-element="Full Stack Developer ^_^">Full Stack Developer ^_^</p>
         </div>
       </div>
       {/* Social Media  */}

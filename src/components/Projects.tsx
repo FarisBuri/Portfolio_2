@@ -6,8 +6,8 @@ function Projects() {
 
         {
             website: "../OldPortfolio/index.html", title: "Old Portfolio", img: "portfolioSm.png", job: "Front End", skills: ["HTML", "CSS", "JS"], privilege: "Advantage", advantage: [
-                "Use Object in Sections",
-                "Use Local Storage, DOM, BOM",
+                "Use Objects",
+                "Use Storage, DOM & BOM",
                 "Light House More Than 80",
             ],
         },
@@ -27,7 +27,7 @@ function Projects() {
 
         { website: "https://farisburi.github.io/Template1-With-Mentor/", title: "Template 1", img: "/Template 1.WebP", job: "Front End", skills: ["HTML", "CSS"], privilege: "Library", advantage: ["Font Awesome", "Normlize"] },
 
-        { website: "https://farisburi.github.io/Template1-With-Mentor/", title: "Design SCSS", img: "Design_SCSS.WebP", job: "Front End", skills: ["HTML", "SCSS"], privilege: "Library", advantage: ["Font Awesome", "Normlize"] },
+        { website: "../Design SCSS/index.html", title: "Design SCSS", img: "Design_SCSS.WebP", job: "Front End", skills: ["HTML", "SCSS"], privilege: "Library", advantage: ["Font Awesome", "Normlize"] },
 
         { website: "../Design_Boostrap/index.html", title: "Bootstrap", img: "Bootstrap.png", job: "Front End", skills: ["HTML", "CSS"], privilege: "Library", advantage: ["Font Awesome", "Bootstrap"] },
 
@@ -37,7 +37,7 @@ function Projects() {
         <div className="projects">
             {websites.map(({ website, title, img, job, skills, privilege, advantage }: any, index) => {
                 return (
-                    <div className="box" style={{ backgroundImage: 'url("../images/imgProjects/' + img + '")' }} key={index} data-project={title} onClick={() => window.location.href = website}>
+                    <div className="box" style={{ backgroundImage: 'url("../images/imgProjects/' + img + '")' }} key={index} data-project={title} onClick={() => window.open(website, "_blank")}>
                         <div className="front-end">
                             <ul>
                                 <strong>{job} :</strong>
@@ -64,3 +64,4 @@ function Projects() {
 }
 
 export default Projects
+
