@@ -15,4 +15,4 @@ This Portfolio Use :
 
 With Funtastic Design And Good Animation ^_^
 
-Link : https:farisburi.com
+Website : https://farisburi.com
